@@ -1,0 +1,16 @@
+[Unit]
+Description=Ixtiyotiy izox
+After=network.target
+
+[Service]
+User=acpro
+WorkingDirectory=/home/botlar/Nafisa_Shop/ebozor
+ExecStart=/home/botlar/Nafisa_Shop/ebozor/ebozor/bin/gunicorn --bind 45.132.50.10:4000 ebozor.wsgi
+
+Restart=always
+RestartSec=1
+StandardOutput=append:/home/botlar/Nafisa_Shop/ebozor/service_log.log
+StandardError=append:/home/botlar/Nafisa_Shop/ebozor/error_log.log
+
+[Install]
+WantedBy=multi-user.target
